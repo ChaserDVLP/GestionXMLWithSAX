@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ad_gestionxmlconsax;
 
 import java.io.File;
@@ -23,10 +20,18 @@ public class AccesoXMLSAX {
         
         try {
             
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            parser = factory.newSAXParser();
-            LibrosSaxHandler sh = new LibrosSaxHandler();
-            parser.parse(file, sh);
+            //Creamnos el SAXParserFactory
+            SAXParserFactory factory = SAXParserFactory.newInstance();  
+            //Instanciamos el objeto SAXParser           
+            parser = factory.newSAXParser(); 
+            //Clase donde instanciamos los métodos que controlan los eventos
+            LibrosSaxHandler sh = new LibrosSaxHandler(); 
+            //Le pasamos el documento al parser y la clase que gestiona los eventos
+            parser.parse(file, sh); 
+            
+            //Alternativa para unir las dos últimas líneas
+            //parser.parse(new File(file), new LibrosSaxHandler();
+            
             return 0;
             
         } catch (IOException | ParserConfigurationException | SAXException e) {
